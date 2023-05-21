@@ -1,0 +1,436 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap');
+/* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Space Mono', monospace;
+    user-select: none;
+}*/
+
+:root {
+    --strong_cyan:  hsl(9, 100%, 62%);
+    --verydarkcyan: hsl(183, 100%, 15%);
+    --Darkgrayishcyan: hsl(186, 14%, 43%);
+    /* --Grayishcyan: hsl(186, 48%, 43%); */
+    --Grayishcyan:  hsl(9, 100%, 62%);
+    --raisin-black-1: hsl(227, 29%, 13%);
+    --Lightgrayishcyan: hsl(192, 24%, 96%);
+    --Verylightgrayishcyan: hsl(189, 41%, 97%);
+    --White: hsl(0, 0%, 100%);
+}
+
+#wow {
+    font-family: 'Space Mono', monospace;
+    /* background-color: rgb(204, 202, 202); */
+    display: flex;
+    box-sizing: border-box;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* min-height: 160px;  */
+    position: relative;
+    margin: 150px 100px 0px 100px;
+}
+
+/*.logo {
+    margin-top: 160px;
+    margin-bottom: 85px;
+    /* margin: auto; 
+    /* position: absolute; 
+}*/
+
+#containers {
+    /* position: absolute; */
+    box-sizing: border-box;
+    position: relative;
+    margin-left: 250px;
+    margin-right: 250px;
+    margin: auto;
+    border-radius: 20px;
+    margin-bottom: 240px;
+    margin-top: 20px;
+    height: 480px;
+    width: 930px;
+    background-color: var(--White);
+}
+#mainDiv2 {
+    width: 100vw;
+    height: 100vh;
+    background-image: url(../images/pattern-background-desktop.svg);
+    background-repeat: no-repeat;
+    background-color: hsl(225, 100%, 94%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Red Hat Display', sans-serif;
+}
+#containers>form {
+    margin-left: 47px;
+}
+
+#containers form input {
+    height: 45px;
+    background-color: var(--Verylightgrayishcyan);
+    outline: none;
+    border: none;
+    text-align: right;
+    padding-right: 20px;
+    border-radius: 6px;
+    font-size: 24px;
+}
+
+#bills {
+    position: absolute;
+    top: 40px;
+    /* margin-top: 20px; */
+    color: var(--Darkgrayishcyan);
+}
+
+#amounts {
+    position: absolute;
+    top: 70px;
+    width: 375px;
+    padding-right: 12px;
+    color: var(--raisin-black-1);
+}
+
+#amounts:focus {
+    border: 2px solid var(--strong_cyan);
+}
+
+#dollorSymbol {
+    position: absolute;
+    margin-left: 18px;
+    margin-top: 60px;
+}
+
+#tiplabel {
+    position: absolute;
+    top: 150px;
+    color: var(--Darkgrayishcyan);
+}
+
+.btns {
+    position: absolute;
+    width: 115px;
+    text-align: center;
+    background-color:  hsl(9, 100%, 62%);
+    color: var(--White);
+    border: none;
+    height: 45px;
+    font-size: 24px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+#btn1 {
+    top: 350px;
+    text-align: center;
+    width: 380px;
+}
+
+
+#btn1:hover
+ {
+    background-color: var(--raisin-black-1);
+
+}
+
+#btn1:focus {
+    background-color: var(--strong_cyan);
+    color: var(--raisin-black-1);
+}
+/* 
+#custom {
+    position: absolute;
+    width: 515px;
+    text-align: center;
+    color: var(--White);
+    border: none;
+    height: 45px;
+    font-size: 24px;
+    border-radius: 5px;
+    cursor: pointer;
+    top: 245px;
+    margin-left: 256px;
+    background-color: var(--Verylightgrayishcyan);
+    color: var(--raisin-black-1);
+    padding-right: 10px !important;
+}
+
+#custom:focus {
+    border: 2px solid var(--strong_cyan);
+} */
+
+#counts #noofpeople {
+    position: absolute;
+    top: 200px;
+    color: var(--Darkgrayishcyan);
+}
+
+#peoplecounts {
+    position: absolute;
+    height: 45px;
+    background-color: var(--Verylightgrayishcyan);
+    outline: none;
+    padding-right: 12px;
+    border: none;
+    text-align: right;
+    padding-right: 20px;
+    border-radius: 6px;
+    font-size: 24px;
+    top: 255px;
+    width: 375px;
+    color: var(--raisin-black-1);
+}
+
+#peoplecounts:focus {
+    border: 2px solid var(--strong_cyan)
+}
+
+#counts p {
+    position: absolute;
+    top: 340px;
+    width: 374px;
+    text-align: right;
+}
+
+#counts #countserr {
+    color: red;
+    display: none;
+}
+
+#counts .error {
+    border: 2px solid red;
+}
+
+#personimg {
+    position: absolute;
+    top: 390px;
+    margin-left: 18px;
+}
+
+#showtips {
+    position: absolute;
+    /* margin-top: 28px; */
+    margin-top: 15px;
+    width: 410px;
+    height: 410px;
+    left: 478px;
+    transform: translateY(-36px);
+    border-radius: 15px;
+    background-color: var(--raisin-black-1);
+}
+
+#showtips #tip {
+    position: absolute;
+    margin-left: 35px;
+}
+
+#showtips #tip #tipPrices {
+    position: absolute;
+    width: 300px;
+    margin-top: 60px;
+    color: var(--Verylightgrayishcyan);
+}
+
+#showtips #tip .person {
+    position: absolute;
+    width: 200px;
+    margin-top: 85px;
+    color: var(--Grayishcyan);
+}
+
+#showtips #tip #tipamounts {
+    position: absolute;
+    left: 175px;
+    top: 55px;
+    color: var(--strong_cyan);
+    font-size: 45px;
+}
+
+#showtips #totals {
+    position: absolute;
+    margin-left: 35px;
+}
+
+#showtips #totals #totalPrices {
+    position: absolute;
+    width: 300px;
+    margin-top: 180px;
+    color: var(--Verylightgrayishcyan);
+}
+
+#showtips #totals .person2 {
+    position: absolute;
+    width: 200px;
+    margin-top: 210px;
+    color: var(--Grayishcyan);
+}
+
+#showtips #totals #totalamounts {
+    position: absolute;
+    left: 175px;
+    top: 170px;
+    color: var(--strong_cyan);
+    font-size: 45px;
+}
+
+#buts {
+    width: 330px;
+    height: 45px;
+    border: none;
+    outline: none;
+    user-select: none;
+    position: absolute;
+    margin-left: 40px;
+    cursor: pointer;
+    text-align: center;
+    top: 320px;
+    font-size: 26px;
+    color: white; 
+    border-radius: 5px;
+    background-color: var(--strong_cyan);
+}
+
+
+ #buts:hover {
+    background-color: var(--White);
+    color: var(--raisin-black-1);
+}
+
+
+/* Media query */
+
+@media screen and (max-width:420px) {
+    .logo {
+        margin-top: 60px;
+        margin-bottom: 60px;
+    }
+    #containers {
+        position: static;
+        display: flex;
+        width: 360px;
+        height: 750px;
+        margin-bottom: 20px;
+        padding-right: 0px;
+    }
+    #amounts {
+        width: 320px;
+    }
+    .btns {
+        width: 140px;
+    }
+    /* #btn1 {
+        top: 185px;
+    }
+    #btn2 {
+        top: 185px;
+        margin-left: 163px;
+    }
+    #btn3 {
+        top: 245px;
+        margin-left: 0px;
+    }
+    #btn4 {
+        top: 245px;
+        margin-left: 163px;
+    }
+    #btn5 {
+        top: 305px;
+        margin-left: 0px;
+    }
+    #custom {
+        width: 140px;
+        top: 305px;
+        margin-left: 163px;
+    } */
+    #noofpeople {
+        margin-top: 30px;
+        margin-left: -15px;
+    }
+    #peoplecounts {
+        margin-top: 30px;
+        margin-left: -15px;
+        width: 320px;
+    }
+    #countserr {
+        margin-top: 30px;
+        margin-left: -65px;
+    }
+    #personimg {
+        margin-top: 30px;
+        margin-left: 5px;
+    }
+    #bills,
+    #amounts {
+        transform: translateY(155px);
+    }
+    #dollorSymbol {
+        transform: translateY(-26px);
+    }
+    #tiplabel {
+        transform: translateY(140px);
+    }
+    .btns,
+    #custom {
+        transform: translateY(140px);
+    }
+    #noofpeople,
+    #peoplecounts,
+    #countserr,
+    #personimg {
+        transform: translateY(140px);
+    }
+    #bills,
+    #amounts,
+
+    #tiplabel {
+        margin-left: -20px;
+    }
+    #dollorSymbol {
+        margin-left: 5px;
+    }
+    #showtips {
+        position: static;
+        /* left: -18px; */
+        width: 330px;
+        height: 240px;
+        margin-top: 500px;
+        margin-right: 30px
+        /* top: 70%; */
+        /* margin-left: 27px; */
+        /* margin-bottom: 200px; */
+    }
+    #showtips #tip #tipPrices {
+        margin-top: 20px;
+        width: 100px;
+    }
+    #showtips #tip .person {
+        margin-top: 50px;
+        width: 100px;
+    }
+    #showtips #tip #tipamounts {
+        font-size: 28px;
+        transform: translateX(-45px) translateY(-30px);
+    }
+    #showtips #totals #totalPrices {
+        transform: translateY(-80px);
+        width: 100px;
+    }
+    #showtips #totals .person2 {
+        transform: translateY(-80px);
+        width: 100px;
+    }
+    #showtips #totals #totalamounts {
+        font-size: 28px;
+        transform: translateX(-45px) translateY(-70px);
+    }
+    .buts {
+        position: absolute;
+        transform: translateX(-36px) translateY(-150px);
+        width: 220px !important;
+        left: 10%;
+    }
+}

@@ -1,0 +1,175 @@
+*{
+    margin: 0;
+    padding: 0;
+
+}
+.main 
+{
+    background-color: rgb(240, 239, 237);
+    margin-top: 1rem;
+    padding-bottom: 0.25rem;
+    border-radius:1rem ;
+    margin-bottom: 1rem  ;
+}
+h1{
+padding-left: 1rem;
+
+}
+.location
+{
+    margin: 5rem;
+
+}
+.sell{
+    margin: 20px;
+}
+.ImagePanorama{
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+}
+input[type=file]::file-selector-button {
+  margin-right: 20px;
+  border: none;
+  background: hsl(25.71deg 83.76% 54.12%);
+  padding: 10px 20px;
+  border-radius: 10px;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color .2s ease-in-out;
+}
+
+.drop-container {
+  position: relative;
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  padding: 20px;
+  border-radius: 10px;
+  border: 2px dashed #555;
+  color: #444;
+  cursor: pointer;
+  transition: background-color .2s ease-in-out, border .2s ease-in-out;
+}
+
+.drop-container:hover {
+  background-color: hsl(27, 58%, 93%);
+  border-color: hsl(25.71deg 83.76% 54.12%);
+}
+
+.drop-container:hover .drop-title {
+  color: #222;
+}
+
+.drop-title {
+  color: #444;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  transition: color .2s ease-in-out;
+}
+
+
+.label  
+{
+    border: 1px solid orange;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin: 0 8px;
+    background-color: white;
+    color: black;
+    
+    margin-bottom: 0.25rem;
+}
+.label:hover 
+{
+  background-color: orange;
+}
+input [type = "radio"]
+{
+    display: none; 
+}
+
+
+/* ///////////// adding styling to the city  */ 
+#city-input ,#cars    {
+    width: 500px;
+     
+
+      
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+  #cars {
+width: 200px;
+margin-left: 1rem;
+  }
+  
+  #city-input , #cars:focus {
+    outline: none;
+    border-color: #cc5500;
+  }
+  
+  #cars , #city-input::placeholder {
+    color: #999;
+  }
+  
+  #city-input::-webkit-outer-spin-button,
+  #city-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  
+  /* #city-input[type="number"] {
+    -moz-appearance: textfield;
+  } */
+  
+  #city-input[value="Enter City Name"] {
+    color: #999;
+  }
+  
+  #city-input:focus[value="Enter City Name"] {
+    color: #000;
+  }
+ 
+  
+.type button:hover
+{
+     color: initial !important;
+    background-color: orange !important;
+    border-color: initial !important;
+}
+
+#description
+{
+  width: 55rem;
+
+  border: 1px solid orange;
+}
+.uploadimage{
+  border: 1px dotted orange;
+
+  
+  width : 70%;
+}
+ul {
+  list-style: none;
+}
+
+
+.uploadimage
+{
+  display: flex;
+  justify-content: space-evenly;
+  background-color: white;
+}
+.sizeimage
+{
+  display: flex;
+  flex-direction: column;
+}
