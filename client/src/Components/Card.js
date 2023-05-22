@@ -1,55 +1,70 @@
 import { Link } from "react-router-dom";
+import React, { useState, useEffect } from 'react';
 
 export default function Cards(props) {
+  const data = props.tempData;
+  const base64img = data.image;
+  useEffect(() => {
+    function Base64ToImage(base64img, callback) {
+      var img = new Image();
+      img.onload = function() {
+        callback(img);
+      };
+      img.src = base64img;
+      img.className="w-100 h-100";
+    }
+
+    Base64ToImage(base64img, function(img) {
+      document.getElementById(data._id).appendChild(img);
+    });
+  }, [base64img]);
+  
+  
   return (
     <>
       <div className="property-card">
         <figure className="card-banner">
-          <a href="#">
-            <img
-              src={require("./Assets/images/property-2.jpg")}
-              alt="New Apartment Nice View"
-              className="w-100"
-            ></img>
+          <a href="#" id={data._id}>
+
           </a>
 
-          <div className="card-badge green">For Sale</div>
+          <div className="card-badge" style={{backgroundColor:"hsl(25.71deg 83.76% 54.12%)"}}>For {data.purpose}</div>
 
           <div className="banner-actions">
             <button className="banner-actions-btn">
               <ion-icon name="location"></ion-icon>
 
-              <address>{props.address}</address>
+              <address>{data.address}</address>
             </button>
 
             <button className="banner-actions-btn">
               <ion-icon name="camera"></ion-icon>
 
-              <span>{props.camera}</span>
+              <span>{data.camera}</span>
             </button>
 
             <button className="banner-actions-btn">
               <ion-icon name="film"></ion-icon>
 
-              <span>{props.walkthrough}</span>
+              <span>{data.walkthrough}</span>
             </button>
           </div>
         </figure>
 
         <div className="card-content">
           <div className="card-price">
-            <strong>{props.price}</strong>
+            <strong>{data.price} PKR</strong>
           </div>
 
           <h3 className="h3 card-title">
             <Link to="/view">View Details</Link>
           </h3>
 
-          <p className="card-text">{props.detail}</p>
+          <p className="card-text">{data.description}</p>
 
           <ul className="card-list">
             <li className="card-item">
-              <strong>{props.beds}</strong>
+              <strong>{data.rooms}</strong>
 
               <ion-icon name="bed-outline"></ion-icon>
 
@@ -57,7 +72,7 @@ export default function Cards(props) {
             </li>
 
             <li className="card-item">
-              <strong>{props.bathrooms}</strong>
+              <strong>{data.bath}</strong>
 
               <ion-icon name="man-outline"></ion-icon>
 
@@ -65,11 +80,11 @@ export default function Cards(props) {
             </li>
 
             <li className="card-item">
-              <strong>{props.size}</strong>
+              <strong>{data.area}</strong>
 
               <ion-icon name="square-outline"></ion-icon>
 
-              <span>Square Ft</span>
+              <span>{data.unit}</span>
             </li>
           </ul>
         </div>
@@ -80,16 +95,16 @@ export default function Cards(props) {
               <img
                 src={require("./Assets/images/Umar.jpg")}
                 alt="William Seklo"
-                className="w-100"
+                className="w-100 h-100"
               ></img>
             </figure>
 
             <div>
               <p className="author-name">
-                <a href="#">{props.name}</a>
+                <a href="#">Umar Akhtar</a>
               </p>
 
-              <p className="author-title">{props.author}</p>
+              <p className="author-title">Investor</p>
             </div>
           </div>
 

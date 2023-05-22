@@ -156,11 +156,10 @@ export default function Main() {
                         to increase chances of sale
                       </p>
   
-                      <a href="#" className="card-link">
-                        <span>Find A Home</span>
-  
+                      <Link to="/addproperty" className="card-link">
+                        <span>Sell A Home</span>
                         <ion-icon name="arrow-forward-outline"></ion-icon>
-                      </a>
+                      </Link>
                     </div>
                   </li>
                 </ul>

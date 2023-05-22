@@ -35,7 +35,12 @@ app.use(express.json({limit: '50mb'}));
 app.use(express.urlencoded({limit: '50mb', extended: true, parameterLimit: 50000}));
 app.use(cors()); // Enable CORS for all routes
 
-// API endpoint to store data in the database
+/*
+*
+* SIGNUP
+*
+*/
+
 app.post('/signup', async (req, res) => {
 
   const { email } = req.body;
@@ -58,6 +63,12 @@ app.post('/signup', async (req, res) => {
     }
   });
 });
+
+/*
+*
+* LOGIN
+*
+*/
 
 app.post('/login', async (req, res) => {
   const { email, password } = req.body;
@@ -87,6 +98,13 @@ app.post('/login', async (req, res) => {
     });
   });
 });
+
+
+/*
+*
+* ADD PROPERTY
+*
+*/
 
 app.post("/property", async (req, res) => {
   const {
@@ -149,7 +167,49 @@ app.post("/property", async (req, res) => {
   
 });
 
-//app.use("/login",authRoutes);
+/*
+*
+* DISPLAY DATA
+*
+*/
+
+app.get('/data', (req, res) => {
+  // Retrieve data from MongoDB
+  Property.find()
+    .then((data) => {
+      // Return the data as a JSON response
+      res.status(200).json(data);
+    })
+    .catch((error) => {
+      // Return an error response
+      res.status(500).json({ message: 'Error occurred while fetching data' });
+    });
+});
+
+/*
+*
+* DISPLAY USER
+*
+*/
+
+app.get('/user', (req, res) => {
+  // Retrieve data from MongoDB
+  User.find()
+    .then((data) => {
+      // Return the data as a JSON response
+      res.status(200).json(data);
+    })
+    .catch((error) => {
+      // Return an error response
+      res.status(500).json({ message: 'Error occurred while fetching data' });
+    });
+});
+
+/*
+*
+* LISTENING 
+*
+*/
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);

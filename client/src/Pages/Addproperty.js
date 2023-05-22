@@ -33,22 +33,32 @@ export default function Addproperty() {
       [e.target.name]: e.target.value
     });
   };
-  const handleChangeImage = (e) => {
+  const handleChangeImage = async (e) => {
     const fileList = Array.from(e.target.files);
     const encodedImages = [];
-
-    fileList.forEach((file) => {
-      const reader = new FileReader();
-      reader.readAsDataURL(file);
-      reader.onload = () => {
-        encodedImages.push(reader.result);
-      };
-    });
+  
+    await Promise.all(
+      fileList.map((file) => {
+        return new Promise((resolve, reject) => {
+          const reader = new FileReader();
+          reader.readAsDataURL(file);
+          reader.onload = () => {
+            encodedImages.push(reader.result);
+            resolve();
+          };
+          reader.onerror = (error) => {
+            reject(error);
+          };
+        });
+      })
+    );
+  
     setProperty({
       ...property,
       [e.target.name]: encodedImages
     });
-  }
+  };
+  
   const handleChangeRadio = (e) => {
     setSelectedOption(e.target.value);
     setProperty({
@@ -171,7 +181,7 @@ export default function Addproperty() {
 
             <div className="sell ">
               <label className="label">
-                <input type="radio" name="purpose" value="Sell" onChange={handleChange} />
+                <input type="radio" name="purpose" value="Sale" onChange={handleChange} />
                 Sell
               </label>
               <label className="label">
@@ -296,7 +306,7 @@ export default function Addproperty() {
                     <label for="panoramas" class="drop-container">
                       <span class="drop-title">Drop files here</span>
                       or
-                      <input type="file" id="panoramas" accept="image/*" name="panorama" required multiple onChange={handleChangeImage} />
+                      <input type="file" id="panoramas" accept="image/*" name="panorama" multiple onChange={handleChangeImage} />
                     </label>
                   </div>
                 </div>

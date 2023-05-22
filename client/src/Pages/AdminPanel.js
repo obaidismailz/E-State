@@ -1,11 +1,24 @@
 import Header from "../Components/Header.js";
 import Footer from "../Components/Footer.js";
-import React, { useState } from 'react';
-
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
 import "../Components/Assets/css/adminPanel.css";
 
 function AdminPanel() {
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = async () => {
+    try {
+      const response = await axios.get('http://localhost:3001/user');
+      setData(response.data);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  };
 
 
   const [companies, setCompanies] = useState([
@@ -195,7 +208,39 @@ function AdminPanel() {
       </div>
 
 
+      <div className="container my-4  ">
+        <h2 className=" mt-3">List of Seller </h2>
+        <table className="admin-table shadow ">
+          <thead>
+            <tr>
+              <th>Prfile</th>
+              <th>Name</th>
+              <th>Address</th>
+              <th>total Listing</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {data.map((data) => (
+              <tr key={data._id}>
+                <td className="img1">
+                  <img src={getRandomImage()} alt={data.name} />
+                </td>
+                <td>{data.name}</td>
+                <td>{data.address}</td>
+                <td>2</td>
+                <td>
+                  <button className="btn" onClick={() => handleEdit(data._id)}>Edit</button>
+                  <button className="btn" onClick={() => handleDelete(data._id)}>Delete</button>
+                </td>
+              </tr>
+            ))}
 
+
+
+          </tbody>
+        </table>
+      </div>
       <div className="container my-4">
         <h2>Share Holders</h2>
         <table className="admin-table shadow">
@@ -232,39 +277,7 @@ function AdminPanel() {
 
       <form />
 
-      <div className="container my-4  ">
-        <h2 className=" mt-3">List of Seller </h2>
-        <table className="admin-table shadow ">
-          <thead>
-            <tr>
-              <th>Prfile</th>
-              <th>Name</th>
-              <th>Address</th>
-              <th>total Listing</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {users.map((user) => (
-              <tr key={user.id}>
-                <td className="img1">
-                  <img src={getRandomImage()} alt={user.name} />
-                </td>
-                <td>{user.name}</td>
-                <td>{user.address}</td>
-                <td>{user.listing}</td>
-                <td>
-                  <button className="btn" onClick={() => handleEdit(user.id)}>Edit</button>
-                  <button className="btn" onClick={() => handleDelete(user.id)}>Delete</button>
-                </td>
-              </tr>
-            ))}
-
-
-
-          </tbody>
-        </table>
-      </div>
+      
 
       <form />
 
